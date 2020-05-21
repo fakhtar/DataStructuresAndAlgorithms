@@ -1,0 +1,2 @@
+g++ -pipe -std=c++11 APlusB.cpp # outputs to a.exe
+g++ -pipe -std=c++11 APlusB.cpp -o APlusB # outputs to APlusB.exe

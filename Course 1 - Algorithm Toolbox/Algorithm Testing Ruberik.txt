@@ -1,0 +1,8 @@
+1) Start with some basic manual tests
+2) Check manually for integer overflow, input overflow, all edge cases specified in the problem specification.
+3) Stress test an algorithm by first creating a naieve appraoch to solving the problem
+4) Run some basic tests on the naieve appraoch
+5) Create your best algorithm for solving the problem
+6) Using a while loop, create a random sampling of larger and more complex data sets and compare the answer between the naieve appraoch and your algorithm. The while loop should break with showing output which case cause the problem.
+7) Use clock to determine the runtime of your algorithm for large inpouts
+8) If a bug is discovered, reduce the case to the simplest possible test that can be reproduced and then debug 
