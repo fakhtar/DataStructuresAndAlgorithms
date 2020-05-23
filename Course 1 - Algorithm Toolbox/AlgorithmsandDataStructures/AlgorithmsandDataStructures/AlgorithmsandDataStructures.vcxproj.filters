@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\week1_programming_challenges\1_sum_of_two_digits\APlusB.cpp">
+    <ClCompile Include="..\..\week1_programming_challenges\2_maximum_pairwise_product\max_pairwise_product.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
