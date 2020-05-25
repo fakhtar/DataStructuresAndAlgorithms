@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\week1_programming_challenges\2_maximum_pairwise_product\max_pairwise_product.cpp">
+    <ClCompile Include="..\..\week2_algorithmic_warmup\3_greatest_common_divisor\gcd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

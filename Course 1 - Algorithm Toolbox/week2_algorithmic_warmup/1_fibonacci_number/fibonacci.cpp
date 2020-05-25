@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cassert>
+#include <vector>
 
 // The following code calls a naive algorithm for computing a Fibonacci number.
 //
@@ -14,32 +15,70 @@
 // 5. Remove the call to test_solution, uncomment the line with a call to fibonacci_fast (and the lines reading the input),
 //    and submit it to the grader.
 
-int fibonacci_naive(int n) {
+long long fibonacci_naive(int n) {
     if (n <= 1)
         return n;
 
     return fibonacci_naive(n - 1) + fibonacci_naive(n - 2);
 }
 
-int fibonacci_fast(int n) {
-    // write your code here
-
-    return 0;
+long long fibonacci_fast(int n) {
+    std::vector<long long> fib;
+    fib.push_back(0);
+    fib.push_back(1);
+    long long curr_fib = 0;
+    for (int i = 2; i < n+1; i++)
+    {
+        curr_fib = fib[i - 1] + fib[i - 2];
+        fib.push_back(curr_fib);
+    }
+    if (n==0)
+    {
+        return 0;
+    }
+    else
+    {
+        if (n == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return curr_fib;
+        }
+    }
+    
 }
 
 void test_solution() {
-    assert(fibonacci_fast(3) == 2);
-    assert(fibonacci_fast(10) == 55);
-    for (int n = 0; n < 20; ++n)
-        assert(fibonacci_fast(n) == fibonacci_naive(n));
+    //int n = 1;
+    //while (true)
+    //{
+    //    assert(fibonacci_fast(n) == fibonacci_naive(n));
+    //    n += 1;
+    //}
+
+    //std::cout << "FIB Fast 1: " << fibonacci_fast(1) << '\n';
+    //std::cout << "FIB Naieve 1: " << fibonacci_naive(1) << '\n';
+
+    //assert(fibonacci_fast(3) == 2);
+    //assert(fibonacci_fast(10) == 55);
+    //for (int n = 0; n < 20; ++n)
+    //    assert(fibonacci_fast(n) == fibonacci_naive(n));
+
+
+    //for (int n = 0; n < 20; ++n){
+    //    std::cout << "FIB Naieve: " << n << fibonacci_naive(n) << '\n';
+    //    std::cout << "FIB Fast: " << n << fibonacci_fast(n) << '\n';
+    //}
 }
 
 int main() {
+    //test_solution();
     int n = 0;
     std::cin >> n;
 
-    std::cout << fibonacci_naive(n) << '\n';
-    //test_solution();
-    //std::cout << fibonacci_fast(n) << '\n';
+    //std::cout << fibonacci_naive(n) << '\n';
+    std::cout << fibonacci_fast(n) % 100 << '\n';
     return 0;
 }
