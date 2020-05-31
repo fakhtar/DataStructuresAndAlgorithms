@@ -58,7 +58,7 @@ void test_solution() {
     //    n += 1;
     //}
 
-    //std::cout << "FIB Fast 1: " << fibonacci_fast(1) << '\n';
+    //std::cout << "FIB Fast 7: " << fibonacci_fast(7) << '\n';
     //std::cout << "FIB Naieve 1: " << fibonacci_naive(1) << '\n';
 
     //assert(fibonacci_fast(3) == 2);
@@ -74,7 +74,7 @@ void test_solution() {
 }
 
 int main() {
-    //test_solution();
+    test_solution();
     int n = 0;
     std::cin >> n;
 

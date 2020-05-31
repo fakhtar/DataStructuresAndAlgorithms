@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\week2_algorithmic_warmup\3_greatest_common_divisor\gcd.cpp">
+    <ClCompile Include="..\..\week3_greedy_algorithms\2_maximum_value_of_the_loot\fractional_knapsack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

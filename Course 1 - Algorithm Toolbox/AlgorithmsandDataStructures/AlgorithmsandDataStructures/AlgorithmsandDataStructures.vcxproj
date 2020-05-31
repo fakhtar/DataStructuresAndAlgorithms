@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\week2_algorithmic_warmup\3_greatest_common_divisor\gcd.cpp" />
+    <ClCompile Include="..\..\week3_greedy_algorithms\2_maximum_value_of_the_loot\fractional_knapsack.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
