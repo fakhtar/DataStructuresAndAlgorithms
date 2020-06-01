@@ -43,6 +43,19 @@ double get_optimal_value(int capacity, vector<int> weights, vector<int> values) 
       //wPerVal.push_back(values[i] / weights[i]);
   }
   std::sort(items.begin(), items.end());
+  for (int i = 0; i < items.size(); i++)
+  {
+      if (items[i].weight >= capacity)
+      {
+          value = value + (capacity * items[i].valPerWEight);
+          return value;
+      }
+      else
+      {
+          capacity = capacity - items[i].weight;
+          value = value + (items[i].weight * items[i].valPerWEight);
+      }
+  }
   return value;
 }
 

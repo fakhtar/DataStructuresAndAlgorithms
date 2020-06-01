@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\week3_greedy_algorithms\2_maximum_value_of_the_loot\fractional_knapsack.cpp" />
+    <ClCompile Include="..\..\week3_greedy_algorithms\6_maximum_number_of_prizes\different_summands.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

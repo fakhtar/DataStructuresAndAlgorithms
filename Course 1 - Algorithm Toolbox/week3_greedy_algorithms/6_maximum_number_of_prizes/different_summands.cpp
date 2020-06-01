@@ -4,8 +4,19 @@
 using std::vector;
 
 vector<int> optimal_summands(int n) {
+  int num = 0;
   vector<int> summands;
-  //write your code here
+  while (n != 0)
+  {
+      num += 1;
+      n = n - num;
+      summands.push_back(num);
+      if (std::count(summands.begin(), summands.end(), n) != 0)
+      {
+          summands.pop_back();
+          n = n + num;
+      }
+  }
   return summands;
 }
 

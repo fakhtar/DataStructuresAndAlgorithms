@@ -4,11 +4,34 @@
 using std::cin;
 using std::cout;
 using std::vector;
-using std::max;
 
 int compute_min_refills(int dist, int tank, vector<int> & stops) {
-    // write your code here
-    return -1;
+    stops.push_back(dist);
+    stops.insert(stops.begin(), 0);
+    int sizeOfStops = stops.size();
+    int currStop = 0;
+    int distTrav;
+    int numStops = 0;
+    for (size_t i = 0; i < sizeOfStops; i++)
+    {
+        if (sizeOfStops > i+1 and stops[i + 1] - stops[i] > tank)
+        {
+            return -1;
+        }
+        else
+        {
+            if (stops[i] - stops[currStop] <= tank)
+            {
+                distTrav = stops[i];
+            }
+            else
+            {
+                currStop = i-1;
+                numStops += 1;
+            }
+        }
+    }
+    return numStops;
 }
 
 
