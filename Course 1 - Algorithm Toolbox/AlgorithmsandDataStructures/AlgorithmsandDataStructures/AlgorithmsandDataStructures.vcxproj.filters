@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\week3_greedy_algorithms\6_maximum_number_of_prizes\different_summands.cpp">
+    <ClCompile Include="..\..\week4_divide_and_conquer\2_majority_element\majority_element.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

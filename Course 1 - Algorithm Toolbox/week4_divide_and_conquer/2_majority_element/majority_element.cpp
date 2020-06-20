@@ -1,14 +1,29 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 
 using std::vector;
 
+
 int get_majority_element(vector<int> &a, int left, int right) {
-  if (left == right) return -1;
-  if (left + 1 == right) return a[left];
-  //write your code here
-  return -1;
+    std::unordered_map<int, int> u = {    };
+    float arr_len_div2 = float(right) / 2;
+    for (int i = 0; i < right; i++)
+    {
+        int item = a[i];
+        std::unordered_map<int, int>::const_iterator got = u.find(item);
+        if (got == u.end())
+            u[item] = 1;
+        else {
+            u[item] = u[item] + 1;
+            if (u[item] > arr_len_div2)
+            {
+                return 1;
+            }
+        }
+    }
+    return -1;
 }
 
 int main() {
