@@ -17,28 +17,36 @@ def write_responses(result):
 def process_queries(queries):
     result = []
     # Keep list of all existing (i.e. not deleted yet) contacts.
-    contacts = []
+    contacts = {}
     for cur_query in queries:
         if cur_query.type == 'add':
+            if cur_query.number in contacts:
+                contacts[cur_query.number] = cur_query.name
+            else:
+                contacts[cur_query.number] = cur_query.name
             # if we already have contact with such number,
-            # we should rewrite contact's name
-            for contact in contacts:
-                if contact.number == cur_query.number:
-                    contact.name = cur_query.name
-                    break
-            else: # otherwise, just add it
-                contacts.append(cur_query)
+            # # we should rewrite contact's name
+            # for contact in contacts:
+            #     if contact.number == cur_query.number:
+            #         contact.name = cur_query.name
+            #         break
+            # else: # otherwise, just add it
+            #     contacts.append(cur_query)
         elif cur_query.type == 'del':
-            for j in range(len(contacts)):
-                if contacts[j].number == cur_query.number:
-                    contacts.pop(j)
-                    break
+            if cur_query.number in contacts:
+                del contacts[cur_query.number]
+            # for j in range(len(contacts)):
+            #     if contacts[j].number == cur_query.number:
+            #         contacts.pop(j)
+            #         break
         else:
             response = 'not found'
-            for contact in contacts:
-                if contact.number == cur_query.number:
-                    response = contact.name
-                    break
+            if cur_query.number in contacts:
+                response = contacts[cur_query.number]
+            # for contact in contacts:
+            #     if contact.number == cur_query.number:
+            #         response = contact.name
+            #         break
             result.append(response)
     return result
 
