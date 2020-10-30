@@ -1,0 +1,11 @@
+{
+  "name": "binary-heap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "binaryheap.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
