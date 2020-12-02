@@ -1,0 +1,11 @@
+{
+  "name": "avltree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "avltree.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
