@@ -50,10 +50,19 @@ class my_graph:
                 continue
             connected_components_list.append(connected_component)
         return connected_components_list
+    def add_vertex(self,v):
+        if (not (isinstance(v, str)) or (v in self.graph_dict.keys())):
+            raise ValueError("Vertex exists or is not of type string.")
+        self.graph_dict[v] = set()
+    def add_edge(self,v1,v2):
+        if ( not (isinstance(v1, str)) or not (isinstance(v2, str)) or (v1 not in self.graph_dict.keys()) or (v2 not in self.graph_dict.keys()) or (v1 == v2) or v1 in self.graph_dict[v2] or v2 in self.graph_dict[v1]):
+            raise ValueError("Incorrect, same or missing vertex.")
+        self.graph_dict[v1].add(v2)
+        self.graph_dict[v2].add(v1)
     def __str__(self):
         return str (self.graph_dict)
 
 
 if __name__ == '__main__':
-    my_test_graph = my_graph({"A":{"B","C"},"B":{"A","C"},"C":{"A","B"},"D":{"E"},"E":{"D"},"F":{"G"},"G":{"F"}})
-    print(my_test_graph.connected_components())
+    my_test_graph = my_graph({"A":{"B","C"},"B":{"A","C"},"C":{"A","B"},"D":{"E"},"E":{"D"}})
+    print(my_test_graph.list_neighbors("D"))

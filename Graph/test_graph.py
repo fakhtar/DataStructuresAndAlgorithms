@@ -103,6 +103,53 @@ class test_graph(unittest.TestCase):
         print(self.my_test_graph)
         self.assertTrue(self.my_test_graph.connected_components() == [{'A', 'B'}] or self.my_test_graph.list_edges() == [{'B', 'A'}])
         self.assertTrue(self.my_test_graph2.connected_components() == [{'A', 'B'},{'E', 'D'}] or self.my_test_graph2.list_edges() == [{'A', 'B'},{'D', 'E'}] or self.my_test_graph2.list_edges() == [{'B', 'A'},{'D', 'E'}] or self.my_test_graph2.list_edges() == [{'B', 'A'},{'E', 'D'}])
+    def test_add_edge_for_non_existent_vertex_should_throw_error(self):
+        print('if you try to add an edge for a non-existent vertex then there should be an error ...')
+        self.my_test_graph = my_graph({"A":{"B","C"},"B":{"A","C"},"C":{"A","B"},"D":{"E"},"E":{"D"}})
+        print(self.my_test_graph)
+        self.assertRaises(ValueError,self.my_test_graph.add_edge,"A","A")
+        self.assertRaises(ValueError,self.my_test_graph.add_edge,"A","Z")
+        self.assertRaises(ValueError,self.my_test_graph.add_edge,"Z","A")
+        self.assertRaises(ValueError,self.my_test_graph.add_edge,"Z","Q")
+    def test_add_edge_for_bad_values_vertex_should_throw_error(self):
+        print('if you try to add an edge for a non string vertex then there should be an error ...')
+        self.my_test_graph = my_graph({"A":{"B","C"},"B":{"A","C"},"C":{"A","B"},"D":{"E"},"E":{"D"}})
+        print(self.my_test_graph)
+        self.assertRaises(ValueError,self.my_test_graph.add_edge,1,"A")
+        self.assertRaises(ValueError,self.my_test_graph.add_edge,"A",1)
+        self.assertRaises(ValueError,self.my_test_graph.add_edge,1,1)
+    def test_add_edge_for_an_edge_that_exists_should_throw_error(self):
+        print('if you try to add an edge that exists already there should be an error ...')
+        self.my_test_graph = my_graph({"A":{"B","C"},"B":{"A","C"},"C":{"A","B"},"D":{"E"},"E":{"D"}})
+        print(self.my_test_graph)
+        self.assertRaises(ValueError,self.my_test_graph.add_edge,"A","B")
+        self.assertRaises(ValueError,self.my_test_graph.add_edge,"B","A")
+    def test_add_edge_between_vertices_that_were_disconnected(self):
+        print('You should be able to add an edge between vertices that were previously disconnected ...')
+        self.my_test_graph = my_graph({"A":{"B","C"},"B":{"A","C"},"C":{"A","B"},"D":{"E"},"E":{"D"}})
+        print(self.my_test_graph)
+        self.my_test_graph.add_edge("C","D")
+        self.assertEqual(self.my_test_graph.list_neighbors("C"),{'A', 'B', 'D'})
+        self.assertEqual(self.my_test_graph.list_neighbors("D"),{'E', 'C'})
+    def test_add_vertex_for_bad_values_vertex_should_throw_error(self):
+        print('if you try to add an vertex with bad value there should be an error ...')
+        self.my_test_graph = my_graph({"A":{"B","C"},"B":{"A","C"},"C":{"A","B"},"D":{"E"},"E":{"D"}})
+        print(self.my_test_graph)
+        self.assertRaises(ValueError,self.my_test_graph.add_vertex,1)
+        self.assertRaises(ValueError,self.my_test_graph.add_vertex,[1])
+    def test_add_vertex_that_exists_should_throw_error(self):
+        print('if you try to add a vertex that exists then there should be an error ...')
+        self.my_test_graph = my_graph({"A":{"B","C"},"B":{"A","C"},"C":{"A","B"},"D":{"E"},"E":{"D"}})
+        print(self.my_test_graph)
+        self.assertRaises(ValueError,self.my_test_graph.add_vertex,"A")
+    def test_add_vertex(self):
+        print('if you try to add an edge for a non-existent vertex then there should be an error ...')
+        self.my_test_graph = my_graph({"A":{"B","C"},"B":{"A","C"},"C":{"A","B"},"D":{"E"},"E":{"D"}})
+        print(self.my_test_graph)
+        self.my_test_graph.add_vertex("H")
+        self.my_test_graph.add_edge("H","A")
+        self.assertEqual(self.my_test_graph.list_neighbors("H"),{'A'})
+        self.assertEqual(self.my_test_graph.list_neighbors("A"),{'B','C','H'})
 
 if __name__ == '__main__':
     unittest.main()
